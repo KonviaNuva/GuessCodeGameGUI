@@ -7,45 +7,37 @@ public class GameWindow extends JFrame {
 
     private static GameWindow singleGameWindow;
 
-    public static GameWindow getGameWindow()
-    {
-        if (singleGameWindow == null)
-        {
+    public static GameWindow getGameWindow() {
+        if (singleGameWindow == null) {
             singleGameWindow = new GameWindow();
         }
         return singleGameWindow;
     }
 
-    public GameWindow()
-    {
+    public GameWindow() {
         this.setSize(1200, 900);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setCondition(Condition.MAIN_MENU);
+        this.setCondition(Screen.MAIN_MENU);
         this.setVisible(true);
     }
 
-    private void setCondition(Condition newCondition)
-    {
-        switch (newCondition)
-        {
-            case Condition.MAIN_MENU ->
-            {
+    private void setCondition(Screen newCondition) {
+        switch (newCondition) {
+            case Screen.MAIN_MENU -> {
                 this.getContentPane().setBackground(Color.BLACK);
                 this.setLayout(null);
             }
-            case Condition.GAMEPLAY ->
-            {
-                //we have no gameplay condition described yet
+            case Screen.GAMEPLAY -> {
+                //we have no gameplay screen described yet
             }
-            default ->
-            {
+            default -> {
                 //do nothing as no valid condition chosen
             }
         }
         return;
     }
 
-    enum Condition{
+    enum Screen {
         MAIN_MENU,
         GAMEPLAY
     }
