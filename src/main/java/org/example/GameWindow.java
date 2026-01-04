@@ -6,6 +6,7 @@ import java.awt.*;
 public class GameWindow extends JFrame {
 
     private static GameWindow singleGameWindow;
+    private static Container singleContainer;
 
     public static GameWindow getGameWindow() {
         if (singleGameWindow == null) {
@@ -14,11 +15,13 @@ public class GameWindow extends JFrame {
         return singleGameWindow;
     }
 
-    public GameWindow() {
+    private GameWindow() {
         this.setSize(1200, 900);
+        this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setCondition(Screen.MAIN_MENU);
         this.setVisible(true);
+        singleContainer = this.getContentPane();
     }
 
     private void setCondition(Screen newCondition) {
