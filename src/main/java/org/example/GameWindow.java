@@ -5,14 +5,14 @@ import java.awt.*;
 
 public class GameWindow extends JFrame {
 
-    private static GameWindow singleGameWindow;
-    private static Container singleContainer;
+    private static GameWindow gameWindow;
+    private Container container;
 
     public static GameWindow getGameWindow() {
-        if (singleGameWindow == null) {
-            singleGameWindow = new GameWindow();
+        if (gameWindow == null) {
+            gameWindow = new GameWindow();
         }
-        return singleGameWindow;
+        return gameWindow;
     }
 
     private GameWindow() {
@@ -21,7 +21,7 @@ public class GameWindow extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setCondition(Screen.MAIN_MENU);
         this.setVisible(true);
-        singleContainer = this.getContentPane();
+        this.container = this.getContentPane();
     }
 
     private void setCondition(Screen newCondition) {
