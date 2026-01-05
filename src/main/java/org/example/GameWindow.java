@@ -5,8 +5,15 @@ import java.awt.*;
 
 public class GameWindow extends JFrame {
 
+    public static final int WINDOW_WIDTH = 1200;
+    public static final int WINDOW_HEIGHT = 900;
+
     private static GameWindow gameWindow;
     private Container container;
+    private JPanel activeScreen;
+
+    private JPanel mainMenuScreen;
+    private JPanel gameplayScreen;
 
     public static GameWindow getGameWindow() {
         if (gameWindow == null) {
@@ -16,32 +23,26 @@ public class GameWindow extends JFrame {
     }
 
     private GameWindow() {
-        this.setSize(1200, 900);
+        this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setCondition(Screen.MAIN_MENU);
+        this.changeToScreen(mainMenuScreen);
         this.setVisible(true);
         this.container = this.getContentPane();
     }
 
-    private void setCondition(Screen newCondition) {
-        switch (newCondition) {
-            case Screen.MAIN_MENU -> {
-                this.getContentPane().setBackground(Color.BLACK);
-                this.setLayout(null);
-            }
-            case Screen.GAMEPLAY -> {
-                //we have no gameplay screen described yet
-            }
-            default -> {
-                //do nothing as no valid condition chosen
-            }
+    private void changeToScreen(JPanel newScreen) {
+
+        if (activeScreen != null){
+            activeScreen.setVisible(false);
         }
-        return;
+
+        activeScreen = newScreen;
+        newScreen.setVisible(true);
     }
 
-    enum Screen {
+    /*enum Screen {
         MAIN_MENU,
         GAMEPLAY
-    }
+    }*/
 }
