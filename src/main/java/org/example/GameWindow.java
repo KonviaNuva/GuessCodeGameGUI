@@ -12,8 +12,8 @@ public class GameWindow extends JFrame {
     private Container container;
     private JPanel activeScreen;
 
-    private JPanel mainMenuScreen;
-    private JPanel gameplayScreen;
+    private MainMenuScreen mainMenuScreen;
+    private GameplayScreen gameplayScreen;
 
     public static GameWindow getGameWindow() {
         if (gameWindow == null) {
@@ -26,9 +26,14 @@ public class GameWindow extends JFrame {
         this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.container = this.getContentPane();
+
+        //going to add all our screens to the gameWindow
+        mainMenuScreen = MainMenuScreen.getMainMenuScreen();
+        gameplayScreen = GameplayScreen.getGameplayScreen();
+
         this.changeToScreen(mainMenuScreen);
         this.setVisible(true);
-        this.container = this.getContentPane();
     }
 
     private void changeToScreen(JPanel newScreen) {
@@ -38,7 +43,7 @@ public class GameWindow extends JFrame {
         }
 
         activeScreen = newScreen;
-        newScreen.setVisible(true);
+        activeScreen.setVisible(true);
     }
 
     /*enum Screen {
