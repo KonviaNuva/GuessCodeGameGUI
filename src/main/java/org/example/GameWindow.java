@@ -5,15 +5,22 @@ import java.awt.*;
 
 public class GameWindow extends JFrame {
 
-    public static final int WINDOW_WIDTH = 1200;
-    public static final int WINDOW_HEIGHT = 900;
+    private static final int WINDOW_WIDTH = 1200;
+    private static final int WINDOW_HEIGHT = 900;
 
     private static GameWindow gameWindow;
-    private Container container;
     private JPanel activeScreen;
 
-    private MainMenuScreen mainMenuScreen;
-    private GameplayScreen gameplayScreen;
+    private final MainMenuScreen mainMenuScreen;
+    private final GameplayScreen gameplayScreen;
+
+    public static int getWindowWidth() {
+        return WINDOW_WIDTH;
+    }
+
+    public static int getWindowHeight() {
+        return WINDOW_HEIGHT;
+    }
 
     public static GameWindow getGameWindow() {
         if (gameWindow == null) {
@@ -26,13 +33,15 @@ public class GameWindow extends JFrame {
         this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.container = this.getContentPane();
 
-        //going to add all our screens to the gameWindow
         mainMenuScreen = MainMenuScreen.getMainMenuScreen();
         gameplayScreen = GameplayScreen.getGameplayScreen();
 
+        this.getContentPane().add(mainMenuScreen);
+        this.getContentPane().add(gameplayScreen);
+
         this.changeToScreen(mainMenuScreen);
+
         this.setVisible(true);
     }
 
@@ -45,9 +54,4 @@ public class GameWindow extends JFrame {
         activeScreen = newScreen;
         activeScreen.setVisible(true);
     }
-
-    /*enum Screen {
-        MAIN_MENU,
-        GAMEPLAY
-    }*/
 }

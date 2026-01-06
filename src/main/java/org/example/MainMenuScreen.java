@@ -1,6 +1,7 @@
 package org.example;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class MainMenuScreen extends JPanel {
 
@@ -11,5 +12,11 @@ public class MainMenuScreen extends JPanel {
             mainMenuScreen = new MainMenuScreen();
         }
         return mainMenuScreen;
+    }
+
+    public MainMenuScreen () {
+        this.setBounds(0, 0, GameWindow.getWindowWidth(), GameWindow.getWindowHeight());
+        this.setBackground(Color.CYAN);
+        this.setVisible(false);
     }
 }
