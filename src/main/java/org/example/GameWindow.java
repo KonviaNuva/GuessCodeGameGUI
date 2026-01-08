@@ -5,8 +5,8 @@ import java.awt.*;
 
 public class GameWindow extends JFrame {
 
-    private static final int WINDOW_WIDTH = 1200;
-    private static final int WINDOW_HEIGHT = 900;
+    private static final int WINDOW_WIDTH = 800;
+    private static final int WINDOW_HEIGHT = 600;
 
     private static GameWindow gameWindow;
     private JPanel activeScreen;
@@ -32,6 +32,7 @@ public class GameWindow extends JFrame {
     private GameWindow() {
         this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         this.setResizable(false);
+        this.setLayout(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         mainMenuScreen = MainMenuScreen.getMainMenuScreen();

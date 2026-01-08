@@ -17,6 +17,7 @@ public class GameplayScreen extends JPanel {
     public GameplayScreen () {
         this.setBounds(0, 0, GameWindow.getWindowWidth(), GameWindow.getWindowHeight());
         this.setBackground(Color.PINK);
+        this.setLayout(null);
         this.setVisible(false);
     }
 }
