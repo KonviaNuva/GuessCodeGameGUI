@@ -15,8 +15,8 @@ public class MainMenuScreen extends JPanel {
     private JButton playButton;
     private JButton exitButton;
 
-    private Font titleFont;
-    private Font buttonFont;
+    private final Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
+    private final Font buttonFont = new Font("Times New Roman", Font.PLAIN, 60);
 
     public static MainMenuScreen getMainMenuScreen() {
         if (mainMenuScreen == null) {
@@ -48,9 +48,6 @@ public class MainMenuScreen extends JPanel {
         exitButtonPanel.setBackground(Color.BLACK);
         exitButtonPanel.setVisible(true);
         this.add(exitButtonPanel);
-
-        titleFont = new Font("Times New Roman", Font.PLAIN, 90);
-        buttonFont = new Font("Times New Roman", Font.PLAIN, 60);
 
         titleLabel = new JLabel("Guess Code");
         titleLabel.setForeground(Color.WHITE);

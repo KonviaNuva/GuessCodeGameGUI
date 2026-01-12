@@ -41,7 +41,7 @@ public class GameWindow extends JFrame {
         this.getContentPane().add(mainMenuScreen);
         this.getContentPane().add(gameplayScreen);
 
-        this.changeToScreen(mainMenuScreen);
+        this.changeToScreen(gameplayScreen);
 
         this.setVisible(true);
     }
