@@ -17,6 +17,9 @@ public class GameplayScreen extends JPanel {
     private JLabel instructionLabel;
     private JTextField guessTextField;
     private JTextArea lastResultTextArea;
+    private JLabel attemptsLabel;
+    private JTextArea attemptsTextArea;
+    private JScrollPane attemptsScrollPane;
 
     private final Font buttonFont = new Font("Times New Roman", Font.PLAIN, 40);
     private final Font normalFont = new Font("Times New Roman", Font.PLAIN, 30);
@@ -33,12 +36,6 @@ public class GameplayScreen extends JPanel {
         this.setBackground(Color.PINK);
         this.setLayout(null);
         this.setVisible(false);
-
-        attemptsPanel = new JPanel();
-        attemptsPanel.setBounds(400, 0, 400, 600);
-        attemptsPanel.setBackground(Color.CYAN);
-        attemptsPanel.setVisible(true);
-        this.add(attemptsPanel);
 
         backButtonPanel = new JPanel();
         backButtonPanel.setBounds(0, 0, 140, 70);
@@ -82,7 +79,28 @@ public class GameplayScreen extends JPanel {
         lastResultTextArea.setFont(normalFont);
         lastResultTextArea.setBackground(Color.BLACK);
         lastResultTextArea.setForeground(Color.WHITE);
+        lastResultTextArea.setEditable(false);
+        lastResultTextArea.setText("1234 is a wrong guess\n2 correct digits\n2 misplaced digits");
         lastResultPanel.add(lastResultTextArea);
 
+        attemptsPanel = new JPanel();
+        attemptsPanel.setBounds(400, 0, 400, 600);
+        attemptsPanel.setBackground(Color.CYAN);
+        attemptsPanel.setVisible(true);
+        this.add(attemptsPanel);
+        attemptsLabel = new JLabel("№       correct       misplaced");
+        attemptsLabel.setForeground(Color.WHITE);
+        attemptsLabel.setFont(normalFont);
+        attemptsPanel.add(attemptsLabel);
+        attemptsTextArea = new JTextArea(14, 15);
+        attemptsTextArea.setLineWrap(true);
+        attemptsTextArea.setWrapStyleWord(true);
+        attemptsTextArea.setFont(normalFont);
+        attemptsTextArea.setBackground(Color.BLACK);
+        attemptsTextArea.setForeground(Color.WHITE);
+        attemptsTextArea.setEditable(true);
+        attemptsTextArea.setText("1         2               2");
+        attemptsScrollPane = new JScrollPane(attemptsTextArea);
+        attemptsPanel.add(attemptsScrollPane);
     }
 }
