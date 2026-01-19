@@ -29,6 +29,14 @@ public class GameWindow extends JFrame {
         return gameWindow;
     }
 
+    public MainMenuScreen getMainMenuScreen() {
+        return mainMenuScreen;
+    }
+
+    public GameplayScreen getGameplayScreen() {
+        return gameplayScreen;
+    }
+
     private GameWindow() {
         this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         this.setResizable(false);
@@ -41,12 +49,12 @@ public class GameWindow extends JFrame {
         this.getContentPane().add(mainMenuScreen);
         this.getContentPane().add(gameplayScreen);
 
-        this.changeToScreen(gameplayScreen);
+        this.changeToScreen(mainMenuScreen);
 
         this.setVisible(true);
     }
 
-    private void changeToScreen(JPanel newScreen) {
+    public void changeToScreen(JPanel newScreen) {
 
         if (activeScreen != null){
             activeScreen.setVisible(false);

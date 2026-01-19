@@ -33,13 +33,13 @@ public class GameplayScreen extends JPanel {
 
     public GameplayScreen () {
         this.setBounds(0, 0, GameWindow.getWindowWidth(), GameWindow.getWindowHeight());
-        this.setBackground(Color.PINK);
+        this.setBackground(Color.BLACK);
         this.setLayout(null);
         this.setVisible(false);
 
         backButtonPanel = new JPanel();
         backButtonPanel.setBounds(0, 0, 140, 70);
-        backButtonPanel.setBackground(Color.YELLOW);
+        backButtonPanel.setBackground(Color.BLACK);
         backButtonPanel.setVisible(true);
         this.add(backButtonPanel);
         backButton = new JButton("Back");
@@ -48,10 +48,13 @@ public class GameplayScreen extends JPanel {
         backButton.setFont(buttonFont);
         backButton.setFocusPainted(false);
         backButtonPanel.add(backButton);
+        backButton.addActionListener(e -> {
+            GameWindow.getGameWindow().changeToScreen(GameWindow.getGameWindow().getMainMenuScreen());
+        });
 
         instructionPanel = new JPanel();
         instructionPanel.setBounds(100, 100, 200, 50);
-        instructionPanel.setBackground(Color.BLUE);
+        instructionPanel.setBackground(Color.BLACK);
         instructionPanel.setVisible(true);
         this.add(instructionPanel);
         instructionLabel = new JLabel("Enter the code");
@@ -61,7 +64,7 @@ public class GameplayScreen extends JPanel {
 
         guessPanel = new JPanel();
         guessPanel.setBounds(100, 150, 200, 50);
-        guessPanel.setBackground(Color.RED);
+        guessPanel.setBackground(Color.BLACK);
         guessPanel.setVisible(true);
         this.add(guessPanel);
         guessTextField = new JTextField(6);
@@ -72,7 +75,7 @@ public class GameplayScreen extends JPanel {
 
         lastResultPanel = new JPanel();
         lastResultPanel.setBounds(25, 225, 350, 150);
-        lastResultPanel.setBackground(Color.CYAN);
+        lastResultPanel.setBackground(Color.BLACK);
         lastResultPanel.setVisible(true);
         this.add(lastResultPanel);
         lastResultTextArea = new JTextArea(3, 12);
@@ -85,10 +88,10 @@ public class GameplayScreen extends JPanel {
 
         attemptsPanel = new JPanel();
         attemptsPanel.setBounds(400, 0, 400, 600);
-        attemptsPanel.setBackground(Color.CYAN);
+        attemptsPanel.setBackground(Color.BLACK);
         attemptsPanel.setVisible(true);
         this.add(attemptsPanel);
-        attemptsLabel = new JLabel("№       correct       misplaced");
+        attemptsLabel = new JLabel("№          correct    misplaced");
         attemptsLabel.setForeground(Color.WHITE);
         attemptsLabel.setFont(normalFont);
         attemptsPanel.add(attemptsLabel);
@@ -98,8 +101,8 @@ public class GameplayScreen extends JPanel {
         attemptsTextArea.setFont(normalFont);
         attemptsTextArea.setBackground(Color.BLACK);
         attemptsTextArea.setForeground(Color.WHITE);
-        attemptsTextArea.setEditable(true);
-        attemptsTextArea.setText("1         2               2");
+        attemptsTextArea.setEditable(false);
+        attemptsTextArea.setText("1            2            2");
         attemptsScrollPane = new JScrollPane(attemptsTextArea);
         attemptsPanel.add(attemptsScrollPane);
     }
