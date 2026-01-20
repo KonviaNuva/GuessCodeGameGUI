@@ -31,6 +31,18 @@ public class GameplayScreen extends JPanel {
         return gameplayScreen;
     }
 
+    public JTextField getGuessTextField() {
+        return guessTextField;
+    }
+
+    public JTextArea getLastResultTextArea() {
+        return lastResultTextArea;
+    }
+
+    public JTextArea getAttemptsTextArea() {
+        return attemptsTextArea;
+    }
+
     public GameplayScreen () {
         this.setBounds(0, 0, GameWindow.getWindowWidth(), GameWindow.getWindowHeight());
         this.setBackground(Color.BLACK);
@@ -72,6 +84,9 @@ public class GameplayScreen extends JPanel {
         guessTextField.setBackground(Color.BLACK);
         guessTextField.setForeground(Color.WHITE);
         guessPanel.add(guessTextField);
+        guessTextField.addActionListener(e -> {
+            GameManager.receiveGuess(guessTextField.getText());
+        });
 
         lastResultPanel = new JPanel();
         lastResultPanel.setBounds(25, 225, 350, 150);
@@ -83,7 +98,7 @@ public class GameplayScreen extends JPanel {
         lastResultTextArea.setBackground(Color.BLACK);
         lastResultTextArea.setForeground(Color.WHITE);
         lastResultTextArea.setEditable(false);
-        lastResultTextArea.setText("1234 is a wrong guess\n2 correct digits\n2 misplaced digits");
+        lastResultTextArea.setText("");
         lastResultPanel.add(lastResultTextArea);
 
         attemptsPanel = new JPanel();

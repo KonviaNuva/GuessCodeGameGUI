@@ -54,6 +54,7 @@ public class MainMenuScreen extends JPanel {
         playButtonPanel.add(playButton);
         playButton.addActionListener(e -> {
             GameWindow.getGameWindow().changeToScreen(GameWindow.getGameWindow().getGameplayScreen());
+            GameManager.startGame();
         });
 
         exitButtonPanel = new JPanel();
