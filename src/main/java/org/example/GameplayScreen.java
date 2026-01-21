@@ -106,7 +106,7 @@ public class GameplayScreen extends JPanel {
         attemptsPanel.setBackground(Color.BLACK);
         attemptsPanel.setVisible(true);
         this.add(attemptsPanel);
-        attemptsLabel = new JLabel("№          correct    misplaced");
+        attemptsLabel = new JLabel("Guess    correct    misplaced");
         attemptsLabel.setForeground(Color.WHITE);
         attemptsLabel.setFont(normalFont);
         attemptsPanel.add(attemptsLabel);
@@ -117,7 +117,7 @@ public class GameplayScreen extends JPanel {
         attemptsTextArea.setBackground(Color.BLACK);
         attemptsTextArea.setForeground(Color.WHITE);
         attemptsTextArea.setEditable(false);
-        attemptsTextArea.setText("1            2            2");
+        attemptsTextArea.setText("");
         attemptsScrollPane = new JScrollPane(attemptsTextArea);
         attemptsPanel.add(attemptsScrollPane);
     }

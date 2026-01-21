@@ -31,6 +31,8 @@ public class GameManager {
 
         byte[] result = secretCode.CompareTo(input);
 
+        GameplayScreen.getGameplayScreen().getAttemptsTextArea().append(input + "       " + result[0] + "             " + result[1] + "\n");
+
         if (result[0] == secretCode.codeLength)
         {
             GameplayScreen.getGameplayScreen().getLastResultTextArea().setText("Congratulations!\nYou got the code right!\nIt took " + tryCount + " attempts.\n");
