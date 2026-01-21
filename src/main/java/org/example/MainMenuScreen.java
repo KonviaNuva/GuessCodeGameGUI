@@ -8,11 +8,13 @@ public class MainMenuScreen extends JPanel {
     private static MainMenuScreen mainMenuScreen;
 
     private JPanel titleLabelPanel;
-    private JPanel playButtonPanel;
+    private JPanel newGameButtonPanel;
+    private JPanel continueButtonPanel;
     private JPanel exitButtonPanel;
 
     private JLabel titleLabel;
-    private JButton playButton;
+    private JButton newGameButton;
+    private JButton continueButton;
     private JButton exitButton;
 
     private final Font titleFont = new Font("Times New Roman", Font.PLAIN, 90);
@@ -41,20 +43,36 @@ public class MainMenuScreen extends JPanel {
         titleLabel.setFont(titleFont);
         titleLabelPanel.add(titleLabel);
 
-        playButtonPanel = new JPanel();
-        playButtonPanel.setBounds(100, 250, 600, 100);
-        playButtonPanel.setBackground(Color.BLACK);
-        playButtonPanel.setVisible(true);
-        this.add(playButtonPanel);
-        playButton = new JButton("Play");
-        playButton.setBackground(Color.BLACK);
-        playButton.setForeground(Color.WHITE);
-        playButton.setFont(buttonFont);
-        playButton.setFocusPainted(false);
-        playButtonPanel.add(playButton);
-        playButton.addActionListener(e -> {
+        newGameButtonPanel = new JPanel();
+        newGameButtonPanel.setBounds(100, 200, 600, 100);
+        newGameButtonPanel.setBackground(Color.BLACK);
+        newGameButtonPanel.setVisible(true);
+        this.add(newGameButtonPanel);
+        newGameButton = new JButton("New game");
+        newGameButton.setBackground(Color.BLACK);
+        newGameButton.setForeground(Color.WHITE);
+        newGameButton.setFont(buttonFont);
+        newGameButton.setFocusPainted(false);
+        newGameButtonPanel.add(newGameButton);
+        newGameButton.addActionListener(e -> {
             GameWindow.getGameWindow().changeToScreen(GameWindow.getGameWindow().getGameplayScreen());
             GameManager.startGame();
+            continueButtonPanel.setVisible(true);
+        });
+
+        continueButtonPanel = new JPanel();
+        continueButtonPanel.setBounds(100, 300, 600, 100);
+        continueButtonPanel.setBackground(Color.BLACK);
+        continueButtonPanel.setVisible(false);
+        this.add(continueButtonPanel);
+        continueButton = new JButton("Continue");
+        continueButton.setBackground(Color.BLACK);
+        continueButton.setForeground(Color.WHITE);
+        continueButton.setFont(buttonFont);
+        continueButton.setFocusPainted(false);
+        continueButtonPanel.add(continueButton);
+        continueButton.addActionListener(e -> {
+            GameWindow.getGameWindow().changeToScreen(GameWindow.getGameWindow().getGameplayScreen());
         });
 
         exitButtonPanel = new JPanel();
