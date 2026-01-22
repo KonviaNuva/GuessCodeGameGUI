@@ -38,6 +38,8 @@ public class GameWindow extends JFrame {
     }
 
     private GameWindow() {
+        super("Guess Code");
+
         this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         this.setResizable(false);
         this.setLayout(null);

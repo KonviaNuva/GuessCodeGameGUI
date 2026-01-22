@@ -9,7 +9,7 @@ public class GameManager {
     static byte tryCount;
 
     static void startGame() {
-        secretCode = Code.GenerateCode(3);
+        secretCode = Code.GenerateCode(4);
         tryCount = 0;
 
         GameplayScreen.getGameplayScreen().getLastResultTextArea().setText("Welcome to the game!\nTry to guess the " + secretCode.codeLength + " digit code.\n");
