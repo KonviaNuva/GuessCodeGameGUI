@@ -1,15 +1,11 @@
 package org.example;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 public class GameManager {
     static Code secretCode;
     static byte tryCount;
 
     static void startGame() {
-        secretCode = Code.GenerateCode(4);
+        secretCode = Code.generateCode(4);
         tryCount = 0;
 
         GameplayScreen.getGameplayScreen().getLastResultTextArea().setText("Welcome to the game!\nTry to guess the " + secretCode.codeLength + " digit code.\n");
@@ -21,7 +17,7 @@ public class GameManager {
 
         GameplayScreen.getGameplayScreen().getGuessTextField().setText("");
 
-        if (!secretCode.IsAttemptValid(input))
+        if (!secretCode.isAttemptValid(input))
         {
             GameplayScreen.getGameplayScreen().getLastResultTextArea().setText("Input is invalid,\nit can't be the code.\n");
             return;
@@ -29,7 +25,7 @@ public class GameManager {
 
         tryCount++;
 
-        byte[] result = secretCode.CompareTo(input);
+        byte[] result = secretCode.compareTo(input);
 
         GameplayScreen.getGameplayScreen().getAttemptsTextArea().append(input + "       " + result[0] + "             " + result[1] + "\n");
 
@@ -41,9 +37,4 @@ public class GameManager {
 
         GameplayScreen.getGameplayScreen().getLastResultTextArea().setText(input + " is a wrong guess.\n" + result[0] + " correct digits,\n" + result[1] + " misplaced digits.\n");
     }
-
-    /*while (true)
-    {
-
-    }*/
 }

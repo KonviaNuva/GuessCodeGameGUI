@@ -87,7 +87,7 @@ public class MainMenuScreen extends JPanel {
         exitButton.setFocusPainted(false);
         exitButtonPanel.add(exitButton);
         exitButton.addActionListener(e -> {
-            System.exit(0);   // завершает всё приложение
+            System.exit(0);
         });
     }
 }

@@ -7,7 +7,7 @@ public class Code {
     final int codeLength;
     final String codeString;
 
-    static Code GenerateCode(int codeLength)
+    static Code generateCode(int codeLength)
     {
         if (codeLength <= 2)
         {
@@ -39,7 +39,7 @@ public class Code {
         this.codeString = codeString;
     }
 
-    boolean IsAttemptValid(String inputString)
+    boolean isAttemptValid(String inputString)
     {
         if (inputString.length() != codeLength)
         {
@@ -56,14 +56,14 @@ public class Code {
         return true;
     }
 
-    byte[] CompareTo(String attemptString)
+    byte[] compareTo(String attemptString)
     {
         byte correctDigitQuantity = 0;
         byte misplacedDigitQuantity = 0;
 
         for (int i = 0; i < this.codeLength; i++)
         {
-            if (this.GetCodeString().charAt(i) == attemptString.charAt(i))
+            if (this.getCodeString().charAt(i) == attemptString.charAt(i))
             {
                 correctDigitQuantity++;
                 continue;
@@ -71,7 +71,7 @@ public class Code {
 
             for (int j = 0; j < this.codeLength; j++)
             {
-                if (this.GetCodeString().charAt(i) == attemptString.charAt(j))
+                if (this.getCodeString().charAt(i) == attemptString.charAt(j))
                 {
                     misplacedDigitQuantity++;
                     break;
@@ -81,7 +81,7 @@ public class Code {
         return new byte[]{correctDigitQuantity, misplacedDigitQuantity};
     }
 
-    String GetCodeString()
+    String getCodeString()
     {
         return this.codeString;
     }
